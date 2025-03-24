@@ -1,0 +1,38 @@
+{
+	"folders": {},
+	"connections": {
+		"mariaDB-195c72f070b-16702e4cc63ecae9": {
+			"provider": "mysql",
+			"driver": "mariaDB",
+			"name": "tjoeun",
+			"save-password": true,
+			"configuration": {
+				"host": "db.tjoeun.midproject.o-r.kr",
+				"port": "60001",
+				"database": "tjoeun",
+				"url": "jdbc:mariadb://db.tjoeun.midproject.o-r.kr:60001/tjoeun",
+				"configurationType": "MANUAL",
+				"home": "mysql_client",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"auth-model": "native"
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"smart-commit": false,
+			"smart-commit-recover": true,
+			"auto-close-transactions": true,
+			"close-transactions-period": 1800,
+			"auto-close-connections": true,
+			"close-connections-period": 14400
+		}
+	}
+}
