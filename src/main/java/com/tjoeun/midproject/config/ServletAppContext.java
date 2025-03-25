@@ -12,9 +12,12 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import com.tjoeun.midproject.mapper.UserMapper;
+
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.mapper.MapperFactoryBean;
 import org.springframework.beans.factory.annotation.Value;
 
 @Configuration
@@ -33,7 +36,7 @@ public class ServletAppContext implements WebMvcConfigurer {
 	@Value("${db.username}")
 	private String db_username;
 	
-	@Value("${db.password")
+	@Value("${db.password}")
 	private String db_password;
 	
 	@Override
@@ -65,6 +68,12 @@ public class ServletAppContext implements WebMvcConfigurer {
 		return factoryBean.getObject();
 	}
 	
+	@Bean
+	public MapperFactoryBean<UserMapper> getUserMapper(SqlSessionFactory factory) throws Exception {
+		MapperFactoryBean<UserMapper> factoryBean = new MapperFactoryBean<>(UserMapper.class);
+		factoryBean.setSqlSessionFactory(factory);
+		return factoryBean;
+	}
 	@Bean
 	public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
 		return new PropertySourcesPlaceholderConfigurer();

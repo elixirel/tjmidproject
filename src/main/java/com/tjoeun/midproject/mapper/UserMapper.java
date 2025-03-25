@@ -14,7 +14,7 @@ public interface UserMapper {
 	// 회원 가입하기
 	@Insert("Insert into user(name, id, password, username, role) " +
 			"values (" +
-			"#{name}, #{id}, #{password}, #{username}, #{role}")
+			"#{name}, #{id}, #{password}, #{username}, #{role})")
 	void addUser(UserDTO userDTO);
 	
 	// 로그인 성공했을 때, 회원 정보 가져오기
