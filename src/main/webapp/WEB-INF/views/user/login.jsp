@@ -35,16 +35,16 @@
     						<p>아이디 비밀번호를 확인해주세요</p>
     					</div>
                     </c:if>
-					<form:form action="${root }user/loginProcedure" modelAttribute="loginProcUserDTO" method="post">
+					<form:form action="${root }user/loginProcedure" modelAttribute="UserDTO" method="post">
 						<div class="form-group">
-							<form:label path="user_id">아이디</form:label>
-							<form:input path="user_id" class="form-control"/>
-                            <span id="error"><form:errors path="user_id" /></span>
+							<form:label path="id">아이디</form:label>
+							<form:input path="id" class="form-control"/>
+                            <span id="error"><form:errors path="id" /></span>
 						</div>
 						<div class="form-group">
-							<form:label path="user_pw">비밀번호</form:label>
-							<form:password path="user_pw" class="form-control"/>
-                            <span id="error"><form:errors path="user_pw" /></span>
+							<form:label path="password">비밀번호</form:label>
+							<form:password path="password" class="form-control"/>
+                            <span id="error"><form:errors path="password" /></span>
 						</div>
 						<div class="form-group text-right">
 							<form:button class="btn btn-primary">로그인</form:button>

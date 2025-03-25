@@ -16,6 +16,9 @@
 
 <style>
   #error { color: red; font-size: 16px; font-weight: bold; }
+  .radio { display: flex;}
+  .radio p { display: block; width: 100px; vertical-align: middle; line-height: 130%;}
+  .radio input { height: 1.25rem; width: 1.25rem; vertical-align: middle;}
 </style>
 </head>
 <body>
@@ -30,24 +33,35 @@
 		<div class="col-sm-6">
 			<div class="card shadow">
 				<div class="card-body">
-					<form:form action="${root }user/modifyProcedure" modelAttribute="modifyUserDTO" method="post">
+					<form:form action="${root }user/modifyProcedure" modelAttribute="UserDTO" method="post">
 					<div class="form-group">
-						<form:label path="user_name">이름</form:label>
-						<form:input path="user_name" class="form-control" readonly="true"/>
+						<form:label path="name">이름</form:label>
+						<form:input path="name" class="form-control" readonly="true"/>
 					</div>
 					<div class="form-group">
-						<form:label path="user_id">아이디</form:label>
-						<form:input path="user_id" class="form-control" readonly="true"/>
+						<form:label path="id">아이디</form:label>
+						<form:input path="id" class="form-control" readonly="true"/>
 					</div>
 					<div class="form-group">
-						<form:label path="user_pw">비밀번호</form:label>
-						<form:password path="user_pw" class="form-control" />
-						<span id="error"><form:errors path="user_pw" /></span>
+						<form:label path="password">비밀번호</form:label>
+						<form:password path="password" class="form-control" />
+						<span id="error"><form:errors path="password" /></span>
 					</div>
 					<div class="form-group">
-						<form:label path="user_pw2">비밀번호 확인</form:label>
-						<form:password path="user_pw2" class="form-control"/>
-						<span id="error"><form:errors path="user_pw2" /></span>
+						<form:label path="password2">비밀번호 확인</form:label>
+						<form:password path="password2" class="form-control"/>
+						<span id="error"><form:errors path="password2" /></span>
+					</div>
+					<div class="form-group">
+						<form:label path="username">닉네임</form:label>
+						<form:input path="username" class="form-control"/>
+						<span id="error"><form:errors path="username" /></span>
+					</div>
+					<div class="form-group">
+						<form:label path="role">역할</form:label>
+						<div class="radio"><p>학생</p><form:radiobutton path="role" class="form-control" value="0"/></div>
+						<div class="radio"><p>선생님</p><form:radiobutton path="role" class="form-control" value="1"/></div>
+						<span id="error"><form:errors path="role" /></span>
 					</div>
 					<div class="form-group">
 						<div class="text-right">

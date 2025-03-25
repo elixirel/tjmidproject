@@ -15,6 +15,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 <style>
   .error { color:red; font-size:12px; font-weight:bold; }
+  .radio { display: flex;}
+  .radio p { display: block; width: 100px; vertical-align: middle; line-height: 130%;}
+  .radio input { height: 1.25rem; width: 1.25rem; vertical-align: middle;}
 </style>
 <script>
   function checkUserId(){
@@ -60,32 +63,43 @@
 		<div class="col-sm-6">
 			<div class="card shadow">
 				<div class="card-body">
-					<form:form action="${root }user/join_procedure" modelAttribute="joinUserDTO" method="post">
+					<form:form action="${root }user/join_procedure" modelAttribute="UserDTO" method="post">
                         <form:hidden path="userIdExist" />
 						<div class="form-group">
-							<form:label path="user_name">이름</form:label>
-							<form:input type="text" path="user_name" class="form-control"/>
-                            <span class="error"><form:errors path="user_name" /></span>
+							<form:label path="name">이름</form:label>
+							<form:input type="text" path="name" class="form-control"/>
+                            <span class="error"><form:errors path="name" /></span>
 						</div>
 						<div class="form-group">
-							<form:label path="user_id">아이디</form:label>
+							<form:label path="id">아이디</form:label>
 							<div class="input-group">
-								<form:input type="text" path="user_id" class="form-control" onkeypress="resetUserIdExist()" />
+								<form:input type="text" path="id" class="form-control" onkeypress="resetUserIdExist()" />
 								<div class="input-group-append">
 									<button type="button" class="btn btn-primary" onclick="checkUserId()">중복확인</button>         
 								</div>
 							</div>
-                            <span class="error"><form:errors path="user_id" /></span>
+                            <span class="error"><form:errors path="id" /></span>
 						</div>
 						<div class="form-group">
-							<form:label path="user_pw">비밀번호</form:label>
-							<form:password path="user_pw" class="form-control"/>
-                            <span class="error"><form:errors path="user_pw" /></span>
+							<form:label path="password">비밀번호</form:label>
+							<form:password path="password" class="form-control"/>
+                            <span class="error"><form:errors path="password" /></span>
 						</div>
 						<div class="form-group">
-							<form:label path="user_pw2">비밀번호 확인</form:label>
-							<form:password path="user_pw2" class="form-control"/>
-                            <span class="error"><form:errors path="user_pw2" /></span>
+							<form:label path="password2">비밀번호 확인</form:label>
+							<form:password path="password2" class="form-control"/>
+                            <span class="error"><form:errors path="password2" /></span>
+						</div>
+						<div class="form-group">
+							<form:label path="username">닉네임</form:label>
+							<form:input path="username" class="form-control"/>
+                            <span class="error"><form:errors path="username" /></span>
+						</div>
+						<div class="form-group">
+							<form:label path="role">역할</form:label>
+							<div class="radio"><p>학생</p><form:radiobutton path="role" class="form-control" value="0"/></div>
+							<div class="radio"><p>선생님</p><form:radiobutton path="role" class="form-control" value="1"/></div>
+                            <span class="error"><form:errors path="role" /></span>
 						</div>
 						<div class="form-group">
 							<div class="text-right">
